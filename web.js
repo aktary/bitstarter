@@ -3,7 +3,8 @@ var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('Hello World 2!');
+  var foo = Buffer.toString(fs.readFileSync("index.html"));
+  response.send(foo);
 });
 
 var port = process.env.PORT || 5000;
